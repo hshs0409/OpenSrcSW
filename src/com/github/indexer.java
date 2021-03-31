@@ -55,7 +55,6 @@ public class indexer {
                 }
             }
 
-
             FileOutputStream fileOutputStream = new FileOutputStream("./index.post");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(resultMap);
@@ -67,11 +66,9 @@ public class indexer {
             try {
                 Object object = objectInputStream.readObject();
                 objectInputStream.close();
-
                 System.out.println("읽어온 객체의 type =>" + object.getClass());
 
                 HashMap hashMap = (HashMap) object;
-
                 for (String key : (Iterable<String>) hashMap.keySet()) {
                     ArrayList resultList = (ArrayList) hashMap.get(key);
                     System.out.print(key + " : ");
@@ -84,8 +81,6 @@ public class indexer {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
